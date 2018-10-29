@@ -6,125 +6,22 @@
     <title>Page Title</title>
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            //var MyBlah = function($blah) { alert($blah);  };
-            var GameArr = new Array(9);//array that tracks the state of the boxes
-            
-            var CheckArguments = function(a,b,c){
-                if(a!=null && a == b && a == c){
-                    return true;
-                }
-                return false;
-            }
-
-            var isRow = function()
-            {
-                if(CheckArguments(GameArr[0],GameArr[1],GameArr[2]))
-                {
-                    return true;
-                }
-                if(CheckArguments(GameArr[3],GameArr[4],GameArr[5]))
-                {
-                    return true;
-                }
-                if(CheckArguments(GameArr[6],GameArr[7],GameArr[8]))
-                {
-                    return true;
-                }
-                return false;
-            }
-
-            var isColumn = function()
-            {
-                if(CheckArguments(GameArr[0],GameArr[3],GameArr[6]))
-                {
-                    return true;
-                }
-                if(CheckArguments(GameArr[1],GameArr[4],GameArr[7]))
-                {
-                    return true;
-                }
-                if(CheckArguments(GameArr[2],GameArr[5],GameArr[8]))
-                {
-                    return true;
-                }
-                return false;
-            }
-
-            var isDiagonal = function()
-            {
-                if(CheckArguments(GameArr[0],GameArr[4],GameArr[8]))
-                {
-                    return true;
-                }
-                if(CheckArguments(GameArr[2],GameArr[4],GameArr[6]))
-                {
-                    return true;
-                }
-                return false;
-            }
-
-            var isWinner = function()
-            {
-                if(isRow() || isColumn() || isDiagonal())
-                {
-                    alert("winner");
-                }
-            }
-
-            var Cross = function(e){
-                e.text("X");
-                GameArr[parseInt(e.attr('id'),10)] = "X"; //Loads the game array
-                isWinner();
-            };
-            var Circle = function(e){
-                e.text("O");
-                GameArr[parseInt(e.attr('id'),10)] = "O";
-                isWinner();
-            };
-
-            
-
-            var Turn = "O";
-
-            $(".box").click(function()
-            {
-                var e = $(this);
-                if(e.html() == "")
-                {
-                    if(Turn == "X")
-                    {
-                        Cross(e);
-                        Turn = "O";
-                    }
-                    else{
-                        Circle(e);
-                        Turn = "X";
-                    }
-                }
-                
-               
-            });
-
-        });
-    
-    </script>
+    <script src="script.js"></script>
     
 </head>
 <body>
    <div class="wrapper">
         <div class="grid-container">
-                <div class="box" id="0"></div>
-                <div class="box" id="1"></div>
-                <div class="box" id="2"></div>
-                <div class="box" id="3"></div>
-                <div class="box" id="4"></div>
-                <div class="box" id="5"></div>
-                <div class="box" id="6"></div>
-                <div class="box" id="7"></div>
-                <div class="box" id="8"></div>
-            </div>
+            <div class="box" id="0"></div>
+            <div class="box" id="1"></div>
+            <div class="box" id="2"></div>
+            <div class="box" id="3"></div>
+            <div class="box" id="4"></div>
+            <div class="box" id="5"></div>
+            <div class="box" id="6"></div>
+            <div class="box" id="7"></div>
+            <div class="box" id="8"></div>
+        </div>
    </div>
 </body>
 </html>
